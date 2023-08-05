@@ -1,9 +1,10 @@
 # 高精度文本 OCR 识别
 
-> 垂直应用场景：https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6/applications#2
-> PP-OCRv3 当文字存在下方底图、上方存在田字格或文本框时无法识别，当多个文字呈圆环形时无法识别；
-> 高精度中文识别模型：https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B.md
-> 参考自 https://aistudio.baidu.com/aistudio/projectdetail/4436515
++ 垂直应用场景：https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6/applications#2
++ PP-OCRv3 当文字存在下方底图、上方存在田字格或文本框时无法识别，当多个文字呈圆环形时无法识别；
++ 高精度中文识别模型：https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B.md
++ 参考自 https://aistudio.baidu.com/aistudio/projectdetail/4436515
++ 官方常见问题及解决方案：https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/FAQ.md
 
 # 环境配置
 
