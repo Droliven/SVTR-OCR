@@ -1,0 +1,4 @@
+datazip/*
+!datazip/.gitkeep
+output/rec/PPOCRV3_0.5/*
+!output/rec/PPOCRV3_0.5/.gitkeep

@@ -1,0 +1,110 @@
+Global:
+  debug: false
+  use_gpu: true
+  epoch_num: 100
+  log_smooth_window: 20
+  print_batch_step: 20
+  save_model_dir: F:\python_workspace\OCR\SVTRocr\output\rec\PPOCRV3_0.5
+  save_epoch_step: 10
+  eval_batch_step: [0, 2000]
+  cal_metric_during_train: true
+  pretrained_model:
+  checkpoints: F:\python_workspace\OCR\SVTRocr\output\rec\PPOCRV3_0.5\best_accuracy
+  save_inference_dir:
+  use_visualdl: false
+  infer_img: F:\python_workspace\OCR\SVTRocr\data\test_images
+  character_dict_path: F:\python_workspace\OCR\SVTRocr\data\vocab.txt
+  max_text_length: &max_text_length 25
+  infer_mode: false
+  use_space_char: true
+  distributed: true
+  save_res_path: F:\python_workspace\OCR\SVTRocr\output\rec\predicts_ppocrv3_0.5_en.txt
+  
+
+
+Optimizer:
+  name: Adam
+  beta1: 0.9
+  beta2: 0.999
+  lr:
+    name: Cosine
+    learning_rate: 0.001
+    warmup_epoch: 5
+  regularizer:
+    name: L2
+    factor: 3.0e-05
+
+
+Architecture:
+  model_type: rec
+  algorithm: CRNN
+  Transform:
+  Backbone:
+    name: ResNet
+    layers: 34
+  Neck:
+    name: SequenceEncoder
+    encoder_type: rnn
+    hidden_size: 256
+  Head:
+    name: CTCHead
+    fc_decay: 0
+
+
+Loss:
+  name: CTCLoss
+
+PostProcess:
+  name: CTCLabelDecode
+
+Metric:
+  name: RecMetric
+  main_indicator: acc
+
+Train:
+  dataset:
+    name: SimpleDataSet
+    data_dir: F:\python_workspace\OCR\SVTRocr\data
+    ext_op_transform_idx: 1
+    label_file_list:
+    - F:\python_workspace\OCR\SVTRocr\data\train.txt
+    transforms:
+    - DecodeImage:
+        img_mode: BGR
+        channel_first: false
+    - RecConAug:
+        prob: 0.5
+        max_text_length: 25
+        ext_data_num: 2
+        image_shape: [48, 256, 3]
+    - RecAug:
+    - CTCLabelEncode:
+    - RecResizeImg:
+        image_shape: [3, 48, 256]
+    - KeepKeys:
+        keep_keys: ['image', 'label', 'length']
+  loader:
+    shuffle: true
+    batch_size_per_card: 128
+    drop_last: true
+    num_workers: 4
+Eval:
+  dataset:
+    name: SimpleDataSet
+    data_dir: F:\python_workspace\OCR\SVTRocr\data
+    label_file_list:
+    - F:\python_workspace\OCR\SVTRocr\data\dev.txt
+    transforms:
+    - DecodeImage:
+        img_mode: BGR
+        channel_first: false
+    - CTCLabelEncode:
+    - RecResizeImg:
+        image_shape: [3, 48, 256]
+    - KeepKeys:
+        keep_keys: ['image', 'label', 'length']
+  loader:
+    shuffle: false
+    drop_last: false
+    batch_size_per_card: 128
+    num_workers: 4
