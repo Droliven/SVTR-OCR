@@ -6,6 +6,7 @@
 + 参考自 https://aistudio.baidu.com/aistudio/projectdetail/4436515
 + 官方常见问题及解决方案：https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/FAQ.md
 + 官方预训练模型列表：[[https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/models_list.md#23-%E5%A4%9A%E8%AF%AD%E8%A8%80%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B%E6%9B%B4%E5%A4%9A%E8%AF%AD%E8%A8%80%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/models_list.md)]([https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/models_list.md](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/models_list.md))
++ [推理上手](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/quickstart.md) 与 [推理参数解释](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/inference_args.md)
 
 # 环境配置
 
